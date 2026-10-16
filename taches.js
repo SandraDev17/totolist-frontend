@@ -14,7 +14,7 @@ bonjour.textContent = "Bonjour " + prenom + "!";
 // Récupérer les tâches du serveur et les afficher dans la page
 function chargerTaches() { 
 
-    fetch("http://totolist-backend-five.vercel.app/todos")
+    fetch("https://totolist-backend-five.vercel.app/todos/")
         .then(function (reponse) {
             return reponse.json();
         })
@@ -84,7 +84,7 @@ function chargerTaches() {
 
 
 
-        fetch("http://totolist-backend-five.vercel.app/todos" + (idTacheModifier ? '/' + idTacheModifier : ''), {
+        fetch("https://totolist-backend-five.vercel.app/todos/" + (idTacheModifier ? '/' + idTacheModifier : ''), {
             method: idTacheModifier ? 'PUT' : 'POST',
             headers: {
                 'Content-Type': 'application/json'
