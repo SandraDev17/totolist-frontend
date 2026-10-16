@@ -1,0 +1,519 @@
+/* Le padding et les bordures sont inclus dans les dimensions. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #08132f;
+}
+
+.accueil {
+    display: flex;
+    min-height: 100vh;
+     /* fait au moins toute la hauteur de la fenêtre, 100vh represente 100% de la hauteur de la fenêtre */
+}
+
+/* Partie gauche */
+.presentation {
+    width: 50%;
+    padding: 48px;
+    background-color: #2563eb;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    margin: 0;
+    font-size: 26px;
+}
+
+.presentation-contenu {
+    width: 100%;
+    max-width: 580px;
+    margin: auto;
+    padding: 50px 0;
+}
+
+h2 {
+    margin: 0 0 50px;
+    font-size: 48px;
+}
+
+/* Décoration qui évoque une liste de tâches */
+.illustration {
+    padding: 30px;
+    border-radius: 50px;
+    background-color: #4385f5;
+}
+
+.fiche-taches {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 35px;
+    border-radius: 20px;
+    background-color: white;
+    color: #1e3a8a;
+    /* fait tourner la fiche de 4 degrés dans le sens inverse des aiguilles d'une montre */
+    transform: rotate(-4deg);
+    
+}
+
+.fiche-taches span {
+    font-size: 18px;
+}
+
+/* Partie droite */
+.carte {
+    width: 50%;
+    padding: 60px;
+    background-color: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulaire-contenu {
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    margin: 0 0 45px;
+    font-size: 48px;
+}
+
+label {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid #dce3ee;
+    border-radius: 14px;
+    background-color: white;
+    font: inherit;
+    font-size: 20px;
+}
+
+input::placeholder {
+    color: #7b8498;
+}
+
+input:focus {
+    outline: 3px solid #93c5fd;
+    /* ajoute un contour bleu clair autour du champ de saisie lorsqu'il est sélectionné */
+    border-color: #2563eb;
+}
+
+#erreur {
+    min-height: 24px;
+    margin: 12px 0;
+    color: #b91c1c;
+}
+
+button {
+    width: 100%;
+    padding: 22px;
+    border: 1px solid black;
+    border-radius: 7px;
+    color: black;
+    font: inherit;
+    font-size: 20px;
+    font-weight: bold;
+    /* fait apparaître un curseur en forme de main lorsqu'on survole le bouton*/
+    cursor: pointer;
+    background-color : transparent;
+    
+}
+
+#button-ajout{
+    background-color: #1d4ed8;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+button:focus-visible {
+    outline: 3px solid #08132f;
+    outline-offset: 4px;
+    /*fait apparaître un contour noir autour du bouton lorsqu'il est sélectionné au clavier*/
+}
+
+/* Sur téléphone, les deux parties passent l'une sous l'autre. */
+@media (max-width: 750px) {
+    .accueil {
+        flex-direction: column;
+    }
+
+    .presentation,
+    .carte {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .presentation-contenu {
+        padding: 35px 0 10px;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    .carte {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .fiche-taches {
+        padding: 25px;
+    }
+}
+
+/* Page des tâches */
+.page-taches {
+    min-height: 100vh;
+    background-color: #eff6ff;
+}
+
+.entete-taches {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 6%;
+    background-color: #2563eb;
+}
+
+.entete-taches a {
+    color: white;
+}
+
+.marque {
+    font-size: 24px;
+    letter-spacing: 2px;
+    /* fait disparaître le soulignement du lien */
+    text-decoration: none;
+    
+}
+
+.contenu-taches {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 45px 25px;
+}
+
+.page-taches h1 {
+    margin: 10px 0;
+    font-size: 42px;
+}
+
+.page-taches h2 {
+    margin: 0 0 22px;
+    font-size: 25px;
+    /* augmente l'espacement entre les lignes de texte */
+    line-height: 1.3;
+    
+}
+
+#bonjour {
+    color: #1e3a8a;
+    font-weight: bold;
+}
+
+.ajout-tache {
+    margin: 35px 0;
+    padding: 28px;
+    border-radius: 18px;
+    background-color: white;
+}
+
+.page-taches label {
+    font-size: 17px;
+}
+
+.ligne-ajout {
+    display: flex;
+    gap: 15px;
+}
+
+.ligne-ajout input {
+    flex: 1;
+    min-width: 0;
+    font-size: 17px;
+}
+
+.ligne-ajout button {
+    width: auto;
+    padding: 18px 28px;
+    font-size: 17px;
+    color: white;
+}
+
+#erreur-tache {
+    color: #b91c1c;
+}
+
+.liste-taches {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* fait en sorte que les colonnes s'adaptent automatiquement à la largeur disponible, avec une largeur minimale de 250px et une largeur maximale de 1 fraction de l'espace disponible */
+    gap: 20px;
+    
+}
+
+.tache {
+    padding: 25px;
+    border-radius: 8px;
+    background-color: orange;
+    /* ajoute une ombre portée à la tâche pour lui donner un effet de profondeur*/
+    box-shadow: 0 5px 20px #69371033;
+    display:flex;
+    flex-direction: row;
+    gap : 12px;
+    align-items: center;
+    color: #693710;
+}
+
+.tache button {
+    padding : 8px 16px;
+    width : auto;
+    color: #693710;
+    border-color: #693710;
+
+}
+
+.tache.terminee button {
+    border-color: #e2e8e5;
+    color: #e2e8e5;
+}
+
+.tache h3 {
+    margin: 0 0 0;
+    /* permet de couper les mots trop longs pour éviter qu'ils débordent du conteneur*/
+    overflow-wrap: anywhere;
+   
+   
+}
+
+.statut {
+    padding: 7px 12px;
+    border-radius: 20px;
+    background-color: #f0e769;
+    color: #d17000;
+    display:flex;
+    justify-content : center;
+    align-self : center;
+    margin-left : auto;
+    font-weight: bold;
+
+}
+
+.statut.terminee {
+    background-color: #dcfce7;
+    color: green;
+}
+
+.tache.terminee {
+    background-color: #166534;
+    color: #e2e8e5;
+}
+
+.lien-detail {
+    display: inline-block;
+    margin-top: 15px;
+    color: #1d4ed8;
+    font-weight: bold;
+}
+
+
+
+/*page détails*/
+.page-details{
+     background-color: #eff6ff
+}
+
+.entete-taches nav,
+.entete-details nav {
+    display: flex;
+    gap: 20px;
+}
+.entete-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 6%;
+    background-color: #2563eb;
+  }
+
+  .entete-details a {
+    color: white;
+  }
+
+  .tache-details {
+    background-color: white;
+    padding: 25px;
+    max-width: 800px;
+    margin: auto;
+    margin-top : 50px;
+    border-radius: 20px;
+    border-left: orange solid 20px;
+    box-shadow: 0 5px 20px #1e3a8a33;
+  }
+
+  .button-details {
+    display:flex;
+    gap: 20px;   
+    border-top: solid 1px lightgray; 
+    padding: 20px;
+  }
+
+  .button-details button {
+    padding: 10px;
+    
+  }
+
+  .entete {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .entete h1 {
+    margin: 0px;
+  }
+
+  .entete p {
+    background-color: rgb(247, 239, 194) ;
+    border-radius: 20px;
+    padding: 10px;
+    color:orange;
+    font-weight: bold;
+    /* Empêcher la pastille de rétrécir quand le titre est long */
+    flex-shrink: 0;
+  }
+
+  #buttonTerminer {
+    background-color: #166534;
+    border-color: green;
+    color: white;
+  }
+
+  #reouvrirTache {
+    color: #1d4ed8;
+    border-color: #1d4ed8;
+  }
+
+  #supprimer {
+    color: red;
+    border-color: red;
+  }
+
+  .tache-details.terminee {
+    border-left-color: #166534;
+  }
+
+  .tache-details.terminee .entete p {
+    background-color: rgb(209, 236, 168);
+    color: #166534;
+  }
+
+  .tache-details.terminee #buttonTerminer {
+    display : none;
+  }
+
+  #reouvrirTache {
+    display: none;
+  }
+
+  .tache-details.terminee #reouvrirTache {
+    /* Réafficher le bouton Réouvrir quand la tâche est terminée */
+    display: block;
+  }
+
+  /*page-statistiques*/
+  .page-statistiques {
+    background-color: #eff6ff
+    
+  }
+
+.contenu-statistiques {
+    padding: 25px;
+
+}
+
+.taches-statistiques {    
+    padding: 5px;
+    flex: 1;
+}
+
+.lestaches {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    max-width: 600px;
+    margin:auto;
+    border-radius: 20px;
+    padding: 30px;
+
+}
+
+#graphique {
+    max-width: 350px;
+    
+}
+
+#nbTerminee {
+    color: #166534;
+    font-weight: 600;
+}
+
+#nbAFaire {
+    color: orange;
+    font-weight: 600;
+}
+
+  /*affichage sur mobile*/
+@media (max-width: 600px) {
+    .entete {
+    flex-direction: column;
+    gap : 10px;
+    }
+    .ligne-ajout {
+        flex-direction: column;
+    }
+
+    .ligne-ajout button {
+        width: 100%;
+    }
+
+    .entete-taches {
+        padding: 20px;
+    }
+
+    .marque {
+        font-size: 19px;
+    }
+
+    .ajout-tache {
+        padding: 20px;
+    }
+
+    .tache {
+        flex-direction: column;
+    }
+}

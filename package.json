@@ -1,0 +1,17 @@
+{
+  "name": "totolist-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "details.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2"
+  }
+}

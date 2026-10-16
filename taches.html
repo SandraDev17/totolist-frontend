@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes tâches — EM Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="taches.js" defer></script>
+</head>
+
+<body class="page-taches">
+
+    <header class="entete-taches">
+        <a class="marque" href="index.html">
+            <strong>ETMT</strong> SERVICES
+        </a>
+        <nav>
+        <a href="index.html">Accueil</a>
+        <a href="statistiques.html">Statistiques</a>
+        </nav>
+    </header>
+
+    <main class="contenu-taches">
+        <p id="bonjour">Bonjour !</p>
+        <h1>Mes tâches</h1>
+        <p>Organisez votre journée, une tâche à la fois.</p>
+
+        <section class="ajout-tache">
+            <h2 id="titre-ajout">Ajouter une tâche</h2>
+
+            <form id="tache-form">
+                <label for="nouvelle-tache">Nom de la tâche</label>
+
+                <div class="ligne-ajout">
+                    <input type="text" id="nouvelle-tache" name="nouvelle-tache">
+                    <button type="submit" id="button-ajout">Ajouter</button>
+                </div>
+
+                <p id="erreur-tache"></p>
+            </form>
+        </section>
+
+        <section>
+            <h2 id="titre-liste">Toutes les tâches</h2>
+            <p id="message-taches" role="status"></p>
+            <div id="liste-taches" class="liste-taches"></div>
+        </section>
+    </main>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil — ETMT Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+</head>
+<body>
+    <main class="accueil">
+
+        <section class="presentation" aria-label="ETMT Services">
+            <p class="logo"><strong>ETMT</strong> SERVICES</p>
+
+            <div class="presentation-contenu">
+                <h2>Vos projets,<br>bien organisés.</h2>
+
+                <div class="illustration" >
+                    <div class="fiche-taches">
+                        <span>✓ Préparer mon projet</span>
+                        <span>✓ Organiser mes tâches</span>
+                        <span>□ Suivre mon avancement</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="carte">
+            <div class="formulaire-contenu">
+                <h1 id="titre-accueil">Bienvenue !</h1>
+
+                <form id="prenom-form">
+                    <label for="prenom">Votre prénom</label>
+
+                    <input
+                        type="text"
+                        id="prenom"
+                        name="prenom"
+                    >                        
+                    
+
+                    <p id="erreur"></p>
+
+                    <button type="submit">
+                        Voir la liste des tâches
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
