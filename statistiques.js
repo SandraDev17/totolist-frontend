@@ -26,7 +26,7 @@ const graphique =
 
 function chargerStatistiques() {
 
-    fetch("http://totolist-backend-five.vercel.app/todos")
+    fetch("https://totolist-backend-five.vercel.app/todos/")
         .then(function (reponse) {
             return reponse.json();
         })
