@@ -2,9 +2,10 @@ const prenom = localStorage.getItem("prenom");
 const bonjour = document.getElementById("bonjour");
 const listeTaches = document.getElementById("liste-taches");
 const champTache = document.getElementById("nouvelle-tache");
-const buttonAjout = document.getElementById("buton-ajout");
+const buttonAjout = document.getElementById("button-ajout");
 const formulaire = document.getElementById("tache-form");
 const titreAjout = document.getElementById("titre-ajout");
+const erreur = document.getElementById("erreur-tache")
 
 
 let idTacheModifier = null;
@@ -12,7 +13,7 @@ let idTacheModifier = null;
 bonjour.textContent = "Bonjour " + prenom + "!";
 
 // Récupérer les tâches du serveur et les afficher dans la page
-function chargerTaches() { 
+function chargerTaches() {
 
     fetch("https://totolist-backend-five.vercel.app/todos/")
         .then(function (reponse) {
@@ -21,21 +22,21 @@ function chargerTaches() {
         .then(function (todos) {
             const taches = todos[0].todolist;
             // Vider la liste avant de la recharger
-            listeTaches.innerHTML = ''; 
+            listeTaches.innerHTML = '';
             // Construire une carte pour chaque tâche : titre, statut et bouton
-            for (let i = 0; i < taches.length; i++) { 
+            for (let i = 0; i < taches.length; i++) {
                 const tacheItem = document.createElement("div");
                 const titre = document.createElement('h3');
                 tacheItem.appendChild(titre);
                 titre.textContent = taches[i].text;
-                tacheItem.classList.add('tache');                
+                tacheItem.classList.add('tache');
 
                 const tacheComplete = document.createElement("div");
                 tacheComplete.classList.add('statut');
 
 
                 if (taches[i].is_complete === true) {
-                    
+
                     tacheComplete.textContent = "Terminée";
                     tacheComplete.classList.add('terminee');
                     tacheItem.classList.add('terminee');
@@ -49,42 +50,40 @@ function chargerTaches() {
                 const buttonModifier = document.createElement('button');
                 buttonModifier.textContent = 'Modifier';
                 tacheItem.appendChild(buttonModifier);
-                 // Remplir le formulaire avec la tâche choisie pour la modifier
+                // Remplir le formulaire avec la tâche choisie pour la modifier
                 buttonModifier.addEventListener('click', function () {
                     champTache.value = taches[i].text;
                     buttonAjout.textContent = 'Modifier';
-                    idTacheModifier = taches[i].id;                    
+                    idTacheModifier = taches[i].id;
                     titreAjout.textContent = "Modifier la tâche";
 
-                
+
                 })
 
                 const buttonDetails = document.createElement('button');
-                buttonDetails.textContent = 'Détails'; 
+                buttonDetails.textContent = 'Détails';
                 tacheItem.appendChild(buttonDetails);
-                buttonDetails.addEventListener('click', function() {
+                buttonDetails.addEventListener('click', function () {
                     window.location.href = 'details.html?id=' + taches[i].id;
                 })
 
             }
         })
-    }
+}
 
-    // Afficher les tâches à l'ouverture de la page
-    chargerTaches(); 
+// Afficher les tâches à l'ouverture de la page
+chargerTaches();
 
-    //Quand le formulaire est envoyé : ajouter ou modifier une tâche sur le serveur
-    formulaire.addEventListener('submit', function (event) { 
-        event.preventDefault();
-        //récupère le texte saisi au moment de l'envoi du formulaire
-        const texteTache = champTache.value;
-       
+//Quand le formulaire est envoyé : ajouter ou modifier une tâche sur le serveur
+formulaire.addEventListener('submit', function (event) {
+    event.preventDefault();
+    //récupère le texte saisi au moment de l'envoi du formulaire
+    const texteTache = champTache.value;
 
-
-
-
-
-        fetch("https://totolist-backend-five.vercel.app/todos/" + (idTacheModifier ? '/' + idTacheModifier : ''), {
+    if (champTache.value !== "") {
+        // Le champ n'est pas vide 
+        erreur.textContent = "";
+        fetch("https://totolist-backend-five.vercel.app/todos" + (idTacheModifier ? '/' + idTacheModifier : ''), {
             method: idTacheModifier ? 'PUT' : 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -95,13 +94,24 @@ function chargerTaches() {
             .then(task => {
                 console.log(task);
                 // Actualiser les cartes après l'enregistrement
-                chargerTaches(); 
+                chargerTaches();
                 //vider le champ de saisie après l'ajout
-                champTache.value = ''; 
+                champTache.value = '';
                 //réinitialiser l'id de la tâche à modifier
-                idTacheModifier = ''; 
+                idTacheModifier = '';
                 buttonAjout.textContent = 'Ajouter';
                 titreAjout.textContent = "Ajouter une tâche";
-            })
-    })
-            
+
+
+            });
+    }
+    else {
+        // Le champ est vide
+        erreur.textContent = "Veuillez remplir le champ tâche.";
+        //affiche le message si c’est vide
+    }
+
+})
+
+
+
