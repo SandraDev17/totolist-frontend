@@ -12,7 +12,7 @@ body {
 .accueil {
     display: flex;
     min-height: 100vh;
-     /* fait au moins toute la hauteur de la fenêtre, 100vh represente 100% de la hauteur de la fenêtre */
+    /* fait au moins toute la hauteur de la fenêtre, 100vh represente 100% de la hauteur de la fenêtre */
 }
 
 /* Partie gauche */
@@ -59,7 +59,7 @@ h2 {
     color: #1e3a8a;
     /* fait tourner la fiche de 4 degrés dans le sens inverse des aiguilles d'une montre */
     transform: rotate(-4deg);
-    
+
 }
 
 .fiche-taches span {
@@ -130,11 +130,17 @@ button {
     font-weight: bold;
     /* fait apparaître un curseur en forme de main lorsqu'on survole le bouton*/
     cursor: pointer;
-    background-color : transparent;
-    
+    background-color: transparent;
+
 }
 
-#button-ajout{
+.navigation-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#button-ajout {
     background-color: #1d4ed8;
 }
 
@@ -202,7 +208,7 @@ button:focus-visible {
     letter-spacing: 2px;
     /* fait disparaître le soulignement du lien */
     text-decoration: none;
-    
+
 }
 
 .contenu-taches {
@@ -221,7 +227,7 @@ button:focus-visible {
     font-size: 25px;
     /* augmente l'espacement entre les lignes de texte */
     line-height: 1.3;
-    
+
 }
 
 #bonjour {
@@ -267,7 +273,7 @@ button:focus-visible {
     grid-template-columns: 1fr;
     /* fait en sorte que les colonnes s'adaptent automatiquement à la largeur disponible, avec une largeur minimale de 250px et une largeur maximale de 1 fraction de l'espace disponible */
     gap: 20px;
-    
+
 }
 
 .tache {
@@ -276,16 +282,16 @@ button:focus-visible {
     background-color: orange;
     /* ajoute une ombre portée à la tâche pour lui donner un effet de profondeur*/
     box-shadow: 0 5px 20px #69371033;
-    display:flex;
+    display: flex;
     flex-direction: row;
-    gap : 12px;
+    gap: 12px;
     align-items: center;
     color: #693710;
 }
 
 .tache button {
-    padding : 8px 16px;
-    width : auto;
+    padding: 8px 16px;
+    width: auto;
     color: #693710;
     border-color: #693710;
 
@@ -300,8 +306,8 @@ button:focus-visible {
     margin: 0 0 0;
     /* permet de couper les mots trop longs pour éviter qu'ils débordent du conteneur*/
     overflow-wrap: anywhere;
-   
-   
+
+
 }
 
 .statut {
@@ -309,10 +315,10 @@ button:focus-visible {
     border-radius: 20px;
     background-color: #f0e769;
     color: #d17000;
-    display:flex;
-    justify-content : center;
-    align-self : center;
-    margin-left : auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-left: auto;
     font-weight: bold;
 
 }
@@ -337,8 +343,8 @@ button:focus-visible {
 
 
 /*page détails*/
-.page-details{
-     background-color: #eff6ff
+.page-details {
+    background-color: #eff6ff
 }
 
 .entete-taches nav,
@@ -346,6 +352,7 @@ button:focus-visible {
     display: flex;
     gap: 20px;
 }
+
 .entete-details {
     display: flex;
     align-items: center;
@@ -353,106 +360,105 @@ button:focus-visible {
     gap: 20px;
     padding: 25px 6%;
     background-color: #2563eb;
-  }
+}
 
-  .entete-details a {
+.entete-details a {
     color: white;
-  }
+}
 
-  .tache-details {
+.tache-details {
     background-color: white;
     padding: 25px;
     max-width: 800px;
     margin: auto;
-    margin-top : 50px;
+    margin-top: 50px;
     border-radius: 20px;
     border-left: orange solid 20px;
     box-shadow: 0 5px 20px #1e3a8a33;
-  }
+}
 
-  .button-details {
-    display:flex;
-    gap: 20px;   
-    border-top: solid 1px lightgray; 
+.button-details {
+    display: flex;
+    gap: 20px;
+    border-top: solid 1px lightgray;
     padding: 20px;
-  }
+}
 
-  .button-details button {
+.button-details button {
     padding: 10px;
-    
-  }
 
-  .entete {
+}
+
+.entete {
     display: flex;
     gap: 100px;
     align-items: center;
     justify-content: space-between;
-  }
+}
 
-  .entete h1 {
+.entete h1 {
     margin: 0px;
-  }
+}
 
-  .entete p {
-    background-color: rgb(247, 239, 194) ;
+.entete p {
+    background-color: rgb(247, 239, 194);
     border-radius: 20px;
     padding: 10px;
-    color:orange;
+    color: orange;
     font-weight: bold;
     /* Empêcher la pastille de rétrécir quand le titre est long */
     flex-shrink: 0;
-  }
+}
 
-  #buttonTerminer {
+#buttonTerminer {
     background-color: #166534;
     border-color: green;
     color: white;
-  }
+}
 
-  #reouvrirTache {
+#reouvrirTache {
     color: #1d4ed8;
     border-color: #1d4ed8;
-  }
+}
 
-  #supprimer {
+#supprimer {
     color: red;
     border-color: red;
-  }
+}
 
-  .tache-details.terminee {
+.tache-details.terminee {
     border-left-color: #166534;
-  }
+}
 
-  .tache-details.terminee .entete p {
+.tache-details.terminee .entete p {
     background-color: rgb(209, 236, 168);
     color: #166534;
-  }
+}
 
-  .tache-details.terminee #buttonTerminer {
-    display : none;
-  }
-
-  #reouvrirTache {
+.tache-details.terminee #buttonTerminer {
     display: none;
-  }
+}
 
-  .tache-details.terminee #reouvrirTache {
+#reouvrirTache {
+    display: none;
+}
+
+.tache-details.terminee #reouvrirTache {
     /* Réafficher le bouton Réouvrir quand la tâche est terminée */
     display: block;
-  }
+}
 
-  /*page-statistiques*/
-  .page-statistiques {
+/*page-statistiques*/
+.page-statistiques {
     background-color: #eff6ff
-    
-  }
+}
 
 .contenu-statistiques {
     padding: 25px;
 
 }
 
-.taches-statistiques {    
+.taches-statistiques {
     padding: 5px;
     flex: 1;
 }
@@ -466,7 +472,7 @@ button:focus-visible {
     background-color: white;
     align-items: center;
     max-width: 600px;
-    margin:auto;
+    margin: auto;
     border-radius: 20px;
     padding: 30px;
 
@@ -474,7 +480,7 @@ button:focus-visible {
 
 #graphique {
     max-width: 350px;
-    
+
 }
 
 #nbTerminee {
@@ -487,12 +493,13 @@ button:focus-visible {
     font-weight: 600;
 }
 
-  /*affichage sur mobile*/
+/*affichage sur mobile*/
 @media (max-width: 600px) {
     .entete {
-    flex-direction: column;
-    gap : 10px;
+        flex-direction: column;
+        gap: 10px;
     }
+
     .ligne-ajout {
         flex-direction: column;
     }
